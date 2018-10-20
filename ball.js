@@ -1,5 +1,5 @@
-class Ball{
-  constructor(position, velocity, acceleration, radius, impulse, bounds){
+class Ball {
+  constructor(position, velocity, acceleration, radius, impulse, bounds) {
     this.pos = position.copy();
     this.vel = velocity.copy();
     this.acc = acceleration.copy();
@@ -10,7 +10,7 @@ class Ball{
     this.bounds = bounds;
   }
 
-  update(){
+  update() {
     this.vel.add(this.acc);
     this.pos.add(this.vel);
 
@@ -45,7 +45,7 @@ class Ball{
     }
   }
 
-  show(){
+  show() {
     push();
     translate(this.pos.x, this.pos.y, this.pos.z);
     push();
@@ -57,38 +57,39 @@ class Ball{
   }
 
   show_shadow(to_be_shown) {
-    if(to_be_shown){
-    push();
-    translate(0, this.bounds.h / 2 - this.pos.y, 0);
-    rotateX(HALF_PI);
-    fill(0, 0, 0, 204);
-    noStroke();
-    ellipse(0, 0, map(this.pos.y, -this.bounds.h, this.bounds.h, 3 * this.r, 0.75 * this.r));
-    pop();}
+    if (to_be_shown) {
+      push();
+      translate(0, this.bounds.h / 2 - this.pos.y, 0);
+      rotateX(HALF_PI);
+      fill(0, 0, 0, 204);
+      noStroke();
+      ellipse(0, 0, map(this.pos.y, -this.bounds.h, this.bounds.h, 3 * this.r, 0.75 * this.r));
+      pop();
+    }
   }
 
   show_lines(to_be_shown) {
-    if (to_be_shown){
-        push();
-        rotateX(PI);
-        translate(0, -floor(this.vel.y * this.r / 8 + sgn(this.vel.y) * 2 * this.r), 0);
-        specularMaterial(0, 255, 0);
-        box(10, floor(abs(this.vel.y * this.r / 4)), 10);
-        pop();
+    if (to_be_shown) {
+      push();
+      rotateX(PI);
+      translate(0, -floor(this.vel.y * this.r / 8 + sgn(this.vel.y) * 2 * this.r), 0);
+      specularMaterial(0, 255, 0);
+      box(10, floor(abs(this.vel.y * this.r / 4)), 10);
+      pop();
 
-        push();
-        rotateZ(HALF_PI)
-        translate(0, -floor(this.vel.x * this.r / 8 + sgn(this.vel.x) * 2 * this.r), 0);
-        ambientMaterial(255, 0, 0);
-        box(10, floor(abs(this.vel.x * this.r / 4)), 10);
-        pop();
+      push();
+      rotateZ(HALF_PI)
+      translate(0, -floor(this.vel.x * this.r / 8 + sgn(this.vel.x) * 2 * this.r), 0);
+      ambientMaterial(255, 0, 0);
+      box(10, floor(abs(this.vel.x * this.r / 4)), 10);
+      pop();
 
-        push();
-        rotateX(HALF_PI);
-        translate(0, floor(this.vel.z * this.r / 8 + sgn(this.vel.z) * 2 * this.r), 0);
-        ambientMaterial(0, 0, 255);
-        box(10, floor(abs(this.vel.z * this.r / 4)), 10);
-        pop();
+      push();
+      rotateX(HALF_PI);
+      translate(0, floor(this.vel.z * this.r / 8 + sgn(this.vel.z) * 2 * this.r), 0);
+      ambientMaterial(0, 0, 255);
+      box(10, floor(abs(this.vel.z * this.r / 4)), 10);
+      pop();
     }
   }
 

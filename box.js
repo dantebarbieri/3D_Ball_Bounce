@@ -1,11 +1,11 @@
-class Box{
-  constructor(length, width, height){
+class Box {
+  constructor(length, width, height) {
     this.l = length;
     this.w = width;
     this.h = height;
   }
 
-  show(){
+  show() {
     push();
     noFill();
     stroke(255);

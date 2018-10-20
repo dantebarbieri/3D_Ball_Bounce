@@ -12,7 +12,7 @@ let ball;
 let zoom = (l + w) / 1.5;
 
 function setup() {
-  window.addEventListener("contextmenu", function(e) {
+  window.addEventListener("contextmenu", function (e) {
     e.preventDefault();
   });
   createCanvas(windowWidth, windowHeight, WEBGL);
